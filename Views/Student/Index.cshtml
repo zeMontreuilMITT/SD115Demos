@@ -1,0 +1,7 @@
+﻿@model List<Student>
+<h1>Students</h1>
+
+@foreach(Student s in Model){
+    <h3>@s.StudentName</h3>
+    <h4>@s.Age</h4>
+}
