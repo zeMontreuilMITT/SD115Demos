@@ -1,7 +1,15 @@
 ﻿@model Student
 
-<h1>Name</h1>
-<h3>@Model.StudentName</h3>
+@{
+    if(Model == null) {
+        <h2>No Student found with supplied ID</h2>
+    }
+    else
+    {
+        <h1>Name</h1>
+        <h3>@Model.StudentName</h3>
 
-<h2>Age</h2>
-<h3>@Model.Age</h3>
+        <h2>Age</h2>
+        <h3>@Model.Age</h3>
+    }
+}

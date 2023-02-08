@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Course> 
+
+
+<form asp-action="AddToCourse" method="post">
+@{
+    foreach(Course c in Model)
+    {
+
+            <input 
+                asp-route-courseId="@c.CourseId" 
+                asp-route-studentId="@ViewBag.StudentId" 
+                value="@c.Title" type="submit" 
+            />
+    }
+}
+</form>

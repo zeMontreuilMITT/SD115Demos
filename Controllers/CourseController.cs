@@ -6,10 +6,28 @@ namespace SD115Demos.Controllers
 {
     public class CourseController : Controller
     {
-        public IActionResult Details(int id)
+        public IActionResult Index()
         {
-            Course course = FakeContext.Courses.FirstOrDefault(c => c.CourseId == id);
+            return View(FakeContext.Courses);
+        }
+
+        public IActionResult Details(int courseid)
+        {
+            Course course = FakeContext.Courses.FirstOrDefault(c => c.CourseId == courseid);
             return View(course);
+        }
+
+        [HttpGet] 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(string Title, int times)
+        { 
+            FakeContext.CreateCourse(Title);
+            return RedirectToAction("Index");
         }
     }
 }

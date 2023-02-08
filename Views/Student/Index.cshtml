@@ -1,7 +1,12 @@
-﻿@model List<Student>
+﻿@model IEnumerable<Student>
 <h1>Students</h1>
 
 @foreach(Student s in Model){
     <h3>@s.StudentName</h3>
     <h4>@s.Age</h4>
+    @if(s.EnrolledCourse == null)
+    {
+
+        <a asp-action="AddToCourse" method="get" asp-route-studentId="@s.StudentId">Add To Course</a>
+    }
 }

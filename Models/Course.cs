@@ -5,15 +5,19 @@
         private int _courseId;
         public int CourseId { get { return _courseId; } }
 
-        private string _title;
-        public string Title { get { return _title; } }
+        public string Title { get; set; }
 
         public HashSet<Student> Students = new HashSet<Student>();
 
         public Course(int courseId, string title)
         {
             _courseId = courseId;
-            _title = title;
+            Title = title;
+        }
+
+        public Course()
+        {
+
         }
     }
 }

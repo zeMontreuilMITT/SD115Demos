@@ -38,7 +38,6 @@
         }
 
         public Course EnrolledCourse { get; set; }
-
         public Student(int studentId, string name, int age)
         {
             _studentId = studentId;
