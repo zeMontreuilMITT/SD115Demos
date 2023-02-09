@@ -24,6 +24,7 @@ namespace SD115Demos.Models
             }
         }
 
+        // Many-To-Many between Users and Movies broken by Roles
         public User User { get; set; }
         public Movie Movie { get; set; }
 

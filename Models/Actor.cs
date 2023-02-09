@@ -28,9 +28,8 @@ namespace SD115Demos.Models
             }
         }
 
-        // Movies and Actors -- Many-to-Many
-
-        private HashSet<Role> _roles;
+        // Movies and Actors -- Many-to-Many broken by Role
+        private HashSet<Role> _roles = new HashSet<Role>();
         public HashSet<Role> GetRoles()
         {
             return _roles.ToHashSet();

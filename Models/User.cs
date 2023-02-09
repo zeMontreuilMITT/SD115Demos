@@ -23,6 +23,7 @@ namespace SD115Demos.Models
             }
         }
 
+        // Many-to-Many relationship with Movies broken by Ratings
         private HashSet<Rating> _ratings = new HashSet<Rating>();
         public HashSet<Rating> GetRatings()
         {

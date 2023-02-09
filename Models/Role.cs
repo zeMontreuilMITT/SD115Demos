@@ -43,7 +43,8 @@ namespace SD115Demos.Models
             }
         }
 
-        // many-to-many
+        // breaking many-to-many between Actors and Movies
+        // one-to-many on both sides
         public Actor Actor { get; set; }
         public Movie Movie { get; set; }
 

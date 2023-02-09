@@ -28,13 +28,13 @@ namespace SD115Demos.Models
         public DateTime ReleaseDate { get; set; }
 
 
-        private int _budget;
-        public int Budget
+        private int _budgetInMillions;
+        public int BudgetInMillions
         {
-            get { return _budget; }
+            get { return _budgetInMillions; }
             set
             {
-                if (value >= 0) { _budget = value; }
+                if (value >= 0) { _budgetInMillions = value; }
                 else
                 {
                     throw new Exception("Budget cannot be less than 0");
@@ -45,7 +45,8 @@ namespace SD115Demos.Models
 
         public Genre Genre { get; set; }
 
-        // RATINGS -- Many-to-many with users
+
+        // RATINGS -- Many-to-many with users broken by Ratings
         private HashSet<Rating> _ratings = new HashSet<Rating>();
         public HashSet<Rating> GetRatings()
         {
@@ -56,7 +57,8 @@ namespace SD115Demos.Models
             _ratings.Add(rating);
         }
 
-        // ROLES - many-to-many with Movies
+
+        // ROLES - many-to-many with Actors broken by Roles
         private HashSet<Role> _roles = new HashSet<Role>();
         public HashSet<Role> GetRoles()
         {
@@ -71,6 +73,15 @@ namespace SD115Demos.Models
         public Movie()
         {
             _id = Context.GetIdCount();
+        }
+
+        public Movie(string title, DateTime releaseDate, int budget, Genre genre)
+        {
+            _id = Context.GetIdCount();
+            Title = title;
+            ReleaseDate = releaseDate;
+            BudgetInMillions = budget;
+            Genre = genre;
         }
     }
 }
