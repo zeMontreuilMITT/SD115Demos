@@ -28,6 +28,19 @@ namespace SD115Demos.Models
             }
         }
 
+        // Movies and Actors -- Many-to-Many
+
+        private HashSet<Role> _roles;
+        public HashSet<Role> GetRoles()
+        {
+            return _roles.ToHashSet();
+        }
+        public void AddRole(Role role)
+        {
+            _roles.Add(role);
+        }
+
+
         public Actor()
         {
             _id = Context.GetIdCount();

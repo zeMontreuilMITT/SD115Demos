@@ -55,7 +55,18 @@ namespace SD115Demos.Models
         {
             _ratings.Add(rating);
         }
-        
+
+        // ROLES - many-to-many with Movies
+        private HashSet<Role> _roles = new HashSet<Role>();
+        public HashSet<Role> GetRoles()
+        {
+            return _roles.ToHashSet();
+        }
+        public void AddRole(Role role)
+        {
+            _roles.Add(role);
+        }
+
 
         public Movie()
         {
