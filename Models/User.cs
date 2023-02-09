@@ -39,5 +39,11 @@ namespace SD115Demos.Models
         {
             _id = Context.GetIdCount();
         }
+
+        public User(string userName)
+        {
+            _id = Context.GetIdCount();
+            UserName = userName;
+        }
     }
 }

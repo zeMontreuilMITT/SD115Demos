@@ -32,5 +32,12 @@ namespace SD115Demos.Models
         {
             _id = Context.GetIdCount();
         }
+
+        public Rating(int value, User user, Movie movie)
+        {
+            Value = value;
+            User = user;
+            Movie = movie;
+        }
     }
 }
