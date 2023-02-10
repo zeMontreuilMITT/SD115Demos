@@ -43,3 +43,13 @@
         </dd>
     </dl>
 </div>
+
+<div>
+    <h4>Credits</h4>
+    @foreach(Role r in Model.GetRoles())
+    {
+        <div>
+            <span>@r.Actor.Name</span> <span> (@r.Credit)</span>
+        </div>
+    }
+</div>

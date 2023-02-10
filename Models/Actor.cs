@@ -39,10 +39,15 @@ namespace SD115Demos.Models
             _roles.Add(role);
         }
 
-
         public Actor()
         {
             _id = Context.GetIdCount();
+        }
+
+        public Actor(string name)
+        {
+            _id = Context.GetIdCount();
+            Name = name;
         }
 
     }

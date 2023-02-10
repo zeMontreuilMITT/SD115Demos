@@ -52,5 +52,14 @@ namespace SD115Demos.Models
         {
             _id = Context.GetIdCount();
         }
+
+        public Role(string credit, int pay, Actor actor, Movie movie)
+        {
+            Credit = credit;
+            Pay = pay;
+            Movie = movie;
+            Actor = actor;
+            _id = Context.GetIdCount();
+        }
     }
 }

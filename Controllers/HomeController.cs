@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SD115Demos.Data;
 using SD115Demos.Models;
+using SD115Demos.Models.ViewModels;
 using System.Diagnostics;
 
 namespace SD115Demos.Controllers
@@ -14,7 +16,8 @@ namespace SD115Demos.Controllers
 
         public IActionResult Index()
         {
-            return View("Index");
+            MoviesAndActors vm = new MoviesAndActors(Context.Movies, Context.Actors, "This is a web app about movies and actors.");
+            return View(vm);
         }
 
         public IActionResult Privacy()

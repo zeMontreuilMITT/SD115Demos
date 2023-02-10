@@ -1,0 +1,18 @@
+﻿@model SD115Demos.Models.ViewModels.CreateRoleVM
+
+<form asp-action="Create" method="post">
+    <div>
+        <select asp-for="ActorId" asp-items="Model.Actors"></select>
+    </div>
+    <div>
+        <select asp-for="MovieId" asp-items="Model.Movies"></select>
+    </div>
+    <div>
+        <input asp-for="Credit" placeholder="Credited Role"/>
+    </div>
+    <div>
+        <label asp-for="Pay" />
+        <input asp-for="Pay" />
+    </div>
+    <input type="Submit" value="Add Role"/>
+</form>

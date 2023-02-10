@@ -25,11 +25,38 @@ namespace SD115Demos.Data
             Movie movie2 = new Movie("Blade Runner", new DateTime(1972, 1, 1), 70, Genre.Action);
             Movie movie3 = new Movie("Scream", new DateTime(1999, 1, 1), 200, Genre.Horror);
             Movie movie4 = new Movie("Back to the Future", new DateTime(1985, 7, 13), 19, Genre.Comedy);
+            Movie movie5 = new Movie("Teen Wolf", new DateTime(1986, 6, 6), 15, Genre.Comedy);
 
             Movies.Add(movie1);
             Movies.Add(movie2);
             Movies.Add(movie3);
             Movies.Add(movie4);
+            Movies.Add(movie5);
+
+            // Seed Actor
+            Actor michaelJ = new Actor("Michael J. Fox");
+            Actor christopherL = new Actor("Christopher Lloyd");
+
+            Actors.Add(michaelJ);
+            Actors.Add(christopherL);
+
+            // Seed Roles
+            Role marty = new Role("Marty McFly", 100, michaelJ, movie4);
+            Role protagonist = new Role("Teen Wolf Protagonist", 20, michaelJ, movie5);
+            Role doc = new Role("Doc", 200, christopherL, movie4);
+
+
+            movie4.AddRole(marty);
+            movie4.AddRole(doc);
+            michaelJ.AddRole(marty);
+            christopherL.AddRole(doc);
+
+            movie5.AddRole(protagonist);
+            michaelJ.AddRole(protagonist);
+
+            Roles.Add(marty);
+            Roles.Add(doc);
+            Roles.Add(protagonist);
 
             // seed Users
             User user1 = new User("PopcornLunatic");
