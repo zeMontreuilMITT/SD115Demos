@@ -19,17 +19,28 @@ namespace SD115Demos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([Bind("ActorId","MovieId","Credit","Pay")] CreateRoleVM vm)
+        public IActionResult Create([Bind("ActorId","MovieId","Credit","Pay")] CreateRoleVM vm, string secret)
         {
-            Actor actor = Context.Actors.First(a => a.Id == Int32.Parse(vm.ActorId));
-            Movie movie = Context.Movies.First(m => m.Id == Int32.Parse(vm.MovieId));
-            string credit = vm.Credit;
-            int pay = vm.Pay;
+            try
+            {
+                Actor actor = Context.Actors.First(a => a.Id == Int32.Parse(vm.ActorId));
+                Movie movie = Context.Movies.First(m => m.Id == Int32.Parse(vm.MovieId));
+                string credit = vm.Credit;
+                int pay = vm.Pay;
 
-            // create new role and add to Context/Actor Relationships
+                // create new role and add to Context/Actor Relationships
+                Role newRole = new Role(credit, pay, actor, movie);
+                actor.AddRole(newRole);
+                movie.AddRole(newRole);
 
+                Context.Roles.Add(newRole);
 
-            return View();
+                return RedirectToAction("Info", "Movie", new {id = movie.Id});
+            } catch(Exception ex)
+            {
+                return NotFound();
+            }
+            
         }
     }
 }
