@@ -1,0 +1,16 @@
+﻿@model SD115Demos.Models.ViewModel.LaptopsInBrandVM
+
+<form asp-action="Laptops" method="post">
+    <select asp-for="BrandID" asp-items="@Model.BrandItems"></select>
+    <input type="submit" value="Get Laptops in Brand"/>
+</form>
+
+@if(Model.Brand != null){
+    <ul>
+        @foreach (Laptop l in Model.Brand.GetLaptops())
+        {
+            <li>@l.YearOfMake @l.Model</li>
+        }
+    </ul>
+    
+}

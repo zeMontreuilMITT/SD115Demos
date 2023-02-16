@@ -2,6 +2,9 @@
 {
     public class Brand
     {
+        private int _id;
+        public int Id { get { return _id; } }
+
         private string _name;
         public string Name { get { return _name; } } 
         private void _setName(string value)
@@ -26,8 +29,9 @@
             _laptops.Add(laptop);
         }
 
-        public Brand(string name)
+        public Brand(int id, string name)
         {
+            _id = id;
             _setName(name);
         }
     }

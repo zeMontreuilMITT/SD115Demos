@@ -1,0 +1,24 @@
+﻿@model SD115Demos.Models.ViewModel.AffordableViewModel
+
+@{
+    ViewData["Title"] = "Affordable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Affordable Laptops</h1>
+<form asp-action="Affordable" method="post">
+    <label asp-for="Budget"></label>
+    <input asp-for="Budget" />
+    <input type="submit" value="Find Laptops"/>
+</form>
+
+@if(Model.Laptops != null)
+{
+    <ul>
+        @foreach(Laptop l in Model.Laptops)
+        {
+            <li>@l.Brand.Name @l.Model ($@l.Price)</li>
+        }
+    </ul>
+}
+

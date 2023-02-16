@@ -1,0 +1,13 @@
+﻿@model IEnumerable<IGrouping<LaptopType, Laptop>>
+
+<h1>Laptops by Type</h1>
+
+@foreach(IGrouping<LaptopType, Laptop> group in Model){
+    <h3>@group.Key.ToString()</h3>
+    <ul>
+        @foreach(Laptop laptop in group.ToList())
+        {
+            <li>@laptop.Model (@laptop.YearOfMake)</li>
+        }
+    </ul>
+}

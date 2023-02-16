@@ -2,6 +2,10 @@
 {
     public class Laptop
     {
+        private int _id;
+        public int Id { get { return _id; } }
+
+
         private string _model;
         public string Model { 
             get { return _model; } 
@@ -50,6 +54,10 @@
                 {
                     throw new Exception("Enter a valid year");
                 }
+                else
+                {
+                    _yearOfMake = value;
+                }
             }
         }
 
@@ -59,8 +67,9 @@
         public LaptopType Type { get { return _type; } }
 
 
-        public Laptop(string model, Brand brand, decimal price, int yearOfMake, int quantity, LaptopType type)
+        public Laptop(int id, string model, Brand brand, decimal price, int yearOfMake, int quantity, LaptopType type)
         {
+            _id = id;
             Model = model;
             _brand = brand;
             Price = price;

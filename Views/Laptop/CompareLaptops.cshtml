@@ -1,0 +1,14 @@
+﻿@model SD115Demos.Models.ViewModel.CompareLaptopsViewModel
+
+<form asp-action="CompareLaptops" method="post">
+    <select asp-for="FirstLaptopId" asp-items="@Model.LaptopItems"></select>
+    <select asp-for="SecondLaptopId" asp-items="@Model.LaptopItems"></select>
+    <input type="submit" value="Compare"/>
+</form>
+
+@if(Model.FirstLaptop != null && Model.SecondLaptop != null)
+{
+    <h3>@Model.FirstLaptop.Brand.Name @Model.FirstLaptop.Model || @Model.SecondLaptop.Brand.Name @Model.SecondLaptop.Model</h3>
+    <div>$@Model.FirstLaptop.Price || $@Model.SecondLaptop.Price</div>
+    <div>@Model.FirstLaptop.YearOfMake || @Model.SecondLaptop.YearOfMake</div>
+}
